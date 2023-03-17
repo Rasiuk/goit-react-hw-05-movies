@@ -22,3 +22,13 @@ export const searchMovies = async searchName => {
     throw new Error(error);
   }
 };
+//api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+export const getDetailFilm = async id => {
+  try {
+    return await axios.get(
+      `${BASE_URL}/3/movie/${id}?api_key=${API_KEY}&language=en-US`
+    );
+  } catch (error) {
+    throw new Error(error);
+  }
+};

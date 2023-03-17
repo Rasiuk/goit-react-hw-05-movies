@@ -1,13 +1,14 @@
 import { FilmGallery } from 'components/FilmGallery/FilmGallery';
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { searchMovies } from 'servises/Fetchs';
 
 export const Movies = () => {
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams('');
-  const query = searchParams.get('query');
-
+  const query = searchParams.get('query') ?? '';
+  const location = useLocation();
+  console.log(location);
   const onSubmit = evt => {
     if (query === null) {
       alert('write something');
@@ -23,6 +24,7 @@ export const Movies = () => {
     <div>
       <form onSubmit={onSubmit}>
         <input
+          value={query}
           name="query"
           onChange={onInputChange}
           className="input"
@@ -35,7 +37,11 @@ export const Movies = () => {
       </form>
       <div>
         {movies ? (
-          <FilmGallery films={movies} title={`Result of search`} />
+          <FilmGallery
+            films={movies}
+            title={`Result of search`}
+            from={location}
+          />
         ) : (
           <h2>Введите название фильма</h2>
         )}
