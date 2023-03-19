@@ -32,3 +32,18 @@ export const getDetailFilm = async id => {
     throw new Error(error);
   }
 };
+//api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+export const getCast = async id => {
+  try {
+    return await axios.get(
+      `${BASE_URL}/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+    );
+  } catch (error) {}
+};
+export const getReviews = async id => {
+  try {
+    return await axios.get(
+      `${BASE_URL}/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`
+    );
+  } catch (error) {}
+};

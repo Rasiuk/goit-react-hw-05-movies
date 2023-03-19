@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { Container, Image, ImageBox } from './FilmDetails.styled';
+import { Container, Image, ImageBox, MainInfo } from './FilmDetails.styled';
 
 export const FilmDetails = ({
   movie: {
@@ -16,18 +16,22 @@ export const FilmDetails = ({
   console.log(back);
   return (
     <Container>
-      <ImageBox>
-        <Link to={back}>back</Link>
-        <Image src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
-      </ImageBox>
+      <MainInfo>
+        <ImageBox>
+          <Link to={back}>back</Link>
+          <Image src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
+        </ImageBox>
+        <div>
+          <h2>
+            {original_title} ( {release_date})
+          </h2>
+          <p>User scrore: {vote_average}%</p>
+          <h3>Overview</h3> <p>{overview}</p>
+          <h3>Genres:</h3>
+          <p>{genres?.map(genre => genre.name).join(', ')}</p>
+        </div>
+      </MainInfo>
       <div>
-        <h2>
-          {original_title} ( {release_date})
-        </h2>
-        <p>User scrore: {vote_average}%</p>
-        <h3>Overview</h3> <p>{overview}</p>
-        <h3>Genres:</h3>
-        <p>{genres?.map(genre => genre.name).join(', ')}</p>
         <ul>
           <li>
             <Link to="cast"> Cast</Link>
