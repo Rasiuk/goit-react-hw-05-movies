@@ -1,16 +1,23 @@
 import { FilmDetails } from 'components/FilmDetails/FilmDetails';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { getDetailFilm } from 'servises/Fetchs';
 export const MovieDetail = () => {
-  const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const [movie, setMovie] = useState([]);
+
   const { id } = useParams();
+  const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/' ?? '/movies');
+
   useEffect(() => {
     getDetailFilm(id).then(data => {
       setMovie(data.data);
     });
   }, [id]);
-  return <FilmDetails movie={movie} back={location} />;
+  return (
+    <div>
+      <FilmDetails movie={movie} back={backLinkLocationRef.current} />;
+    </div>
+  );
 };

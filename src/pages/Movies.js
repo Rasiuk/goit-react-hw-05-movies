@@ -1,5 +1,5 @@
 import { FilmGallery } from 'components/FilmGallery/FilmGallery';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { searchMovies } from 'servises/Fetchs';
 
@@ -20,6 +20,10 @@ export const Movies = () => {
   const onInputChange = evt => {
     setSearchParams({ query: evt.target.value });
   };
+  useEffect(() => {
+    searchMovies(query).then(data => setMovies(data.data.results));
+  }, [query]);
+
   return (
     <div>
       <form onSubmit={onSubmit}>
