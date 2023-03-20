@@ -21,7 +21,6 @@ export const FilmDetails = ({
   },
   back,
 }) => {
-  console.log(back);
   return (
     <Container>
       <MainInfo>

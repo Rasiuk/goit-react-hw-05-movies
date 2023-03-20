@@ -11,7 +11,7 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
   const location = useLocation();
-  console.log(location);
+
   const onSubmit = evt => {
     evt.preventDefault();
     if (query === '') {

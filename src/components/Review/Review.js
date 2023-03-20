@@ -9,7 +9,6 @@ const Review = () => {
   const { id } = useParams();
   useEffect(() => {
     getReviews(id).then(data => {
-      console.log(data);
       setReview(data.data.results);
     });
   }, [id]);
