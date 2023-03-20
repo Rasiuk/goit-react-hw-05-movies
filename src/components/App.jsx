@@ -4,10 +4,11 @@ import { Movies } from 'pages/Movies';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { Cast } from './Cast/Cast';
 import { Review } from './Review/Review';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 export const App = () => {
   return (
     <div>
-      <nav>
+      {/* <nav>
         <ul>
           <li>
             <NavLink to="/">Home</NavLink>
@@ -16,14 +17,17 @@ export const App = () => {
             <NavLink to="movies">Movies</NavLink>
           </li>
         </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
+      </nav> */}
 
-        <Route path="/movies/:id" element={<MovieDetail />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="review" element={<Review />} />
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+
+          <Route path="/movies/:id" element={<MovieDetail />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="review" element={<Review />} />
+          </Route>
         </Route>
       </Routes>
     </div>

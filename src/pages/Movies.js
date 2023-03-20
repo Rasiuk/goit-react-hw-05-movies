@@ -18,11 +18,14 @@ export const Movies = () => {
     searchMovies(query).then(data => setMovies(data.data.results));
   };
   const onInputChange = evt => {
+    if (evt.target.value === '') {
+      return setSearchParams({});
+    }
     setSearchParams({ query: evt.target.value });
   };
   useEffect(() => {
     searchMovies(query).then(data => setMovies(data.data.results));
-  }, [query]);
+  }, []);
 
   return (
     <div>
