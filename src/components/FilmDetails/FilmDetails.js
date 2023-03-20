@@ -1,6 +1,14 @@
 import { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { Container, Image, ImageBox, MainInfo } from './FilmDetails.styled';
+import { Outlet } from 'react-router-dom';
+import {
+  Container,
+  Image,
+  ImageBox,
+  LinkMoreInfo,
+  LinkStyle,
+  MainInfo,
+  Ul,
+} from './FilmDetails.styled';
 
 export const FilmDetails = ({
   movie: {
@@ -18,7 +26,7 @@ export const FilmDetails = ({
     <Container>
       <MainInfo>
         <ImageBox>
-          <Link to={back}>back</Link>
+          <LinkStyle to={back}>back</LinkStyle>
           <Image src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
         </ImageBox>
         <div>
@@ -32,14 +40,15 @@ export const FilmDetails = ({
         </div>
       </MainInfo>
       <div>
-        <ul>
+        <Ul>
+          <h3>Addiional information</h3>
           <li>
-            <Link to="cast"> Cast</Link>
+            <LinkMoreInfo to="cast"> Cast</LinkMoreInfo>
           </li>
           <li>
-            <Link to="review"> Review</Link>
+            <LinkMoreInfo to="review"> Review</LinkMoreInfo>
           </li>
-        </ul>
+        </Ul>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>

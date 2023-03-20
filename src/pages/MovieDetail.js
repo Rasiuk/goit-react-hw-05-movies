@@ -2,7 +2,7 @@ import { FilmDetails } from 'components/FilmDetails/FilmDetails';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { getDetailFilm } from 'servises/Fetchs';
-export const MovieDetail = () => {
+const MovieDetail = () => {
   // console.log(location);
   const [movie, setMovie] = useState([]);
 
@@ -21,3 +21,4 @@ export const MovieDetail = () => {
     </div>
   );
 };
+export default MovieDetail;

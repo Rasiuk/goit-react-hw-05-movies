@@ -10,7 +10,7 @@ export const Ul = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
   list-style: none;
-  max-width: calc(100vw - 24px);
+  max-width: calc(65vw - 8px);
   padding: 0;
   margin: 0px auto;
 `;
