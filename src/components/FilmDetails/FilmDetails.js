@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+
 import {
   Container,
   Image,
@@ -26,7 +28,14 @@ export const FilmDetails = ({
       <MainInfo>
         <ImageBox>
           <LinkStyle to={back}>back</LinkStyle>
-          <Image src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
+          <Image
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : 'https://img.lovepik.com/free-png/20211201/lovepik-hand-painted-popcorn-cola-and-3d-glasses-png-image_401247856_wh1200.png'
+            }
+            alt=""
+          />
         </ImageBox>
         <div>
           <h2>
@@ -55,3 +64,13 @@ export const FilmDetails = ({
     </Container>
   );
 };
+// FilmDetails.propTypes = {
+//   movie: PropTypes.shape({
+//     title: PropTypes.string.isRequired,
+//     release_date: PropTypes.string.isRequired,
+//     vote_average: PropTypes.number.isRequired,
+//     overview: PropTypes.string.isRequired,
+//     genres: PropTypes.arrayOf(PropTypes.shape().isRequired).isRequired,
+//     poster_path: PropTypes.string.isRequired,
+//   }).isRequired,
+// };

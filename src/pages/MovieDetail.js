@@ -17,7 +17,7 @@ const MovieDetail = () => {
   }, [id]);
   return (
     <div>
-      <FilmDetails movie={movie} back={backLinkLocationRef.current} />;
+      <FilmDetails movie={movie} back={backLinkLocationRef.current} />
     </div>
   );
 };
