@@ -17,4 +17,5 @@ export const FilmGallery = ({ films, title, from }) => {
 FilmGallery.propTypes = {
   films: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
+  from: PropTypes.shape().isRequired,
 };

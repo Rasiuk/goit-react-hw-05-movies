@@ -15,6 +15,9 @@ const MovieDetail = () => {
       setMovie(data.data);
     });
   }, [id]);
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <FilmDetails movie={movie} back={backLinkLocationRef.current} />

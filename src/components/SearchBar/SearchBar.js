@@ -1,5 +1,7 @@
 import { Input, Form, SearchButton } from './SearchBar.styled';
 
+import PropTypes from 'prop-types';
+
 export const SearchBar = ({ submit, onInputChange, inputValue }) => {
   return (
     <Form onSubmit={submit}>
@@ -15,4 +17,9 @@ export const SearchBar = ({ submit, onInputChange, inputValue }) => {
       <SearchButton type="submit"> Найти фильмы</SearchButton>
     </Form>
   );
+};
+SearchBar.propTypes = {
+  submit: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
 };
