@@ -1,7 +1,8 @@
-import { FilmDetails } from 'components/FilmDetails/FilmDetails';
-import { useEffect, useRef, useState } from 'react';
+// import { FilmDetails } from 'components/FilmDetails/FilmDetails';
+import { useEffect, useRef, useState, lazy } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { getDetailFilm } from 'servises/Fetchs';
+const FilmDetails = lazy(() => import('../components/FilmDetails/FilmDetails'));
 const MovieDetail = () => {
   // console.log(location);
   const [movie, setMovie] = useState([]);
@@ -12,6 +13,7 @@ const MovieDetail = () => {
 
   useEffect(() => {
     getDetailFilm(id).then(data => {
+      console.log(data);
       setMovie(data.data);
     });
   }, [id]);

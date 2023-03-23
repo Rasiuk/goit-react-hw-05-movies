@@ -9,4 +9,11 @@ export const ActorCard = styled.li`
   width: 200px;
   border: 2px solid #eee;
   border-radius: 4px;
+  &:hover,
+  :focus {
+    transform: scale(1.1);
+  }
+  transform: scale(1);
+  transition: transform 200ms linear;
+  padding: 8px;
 `;

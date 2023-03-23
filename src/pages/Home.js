@@ -8,6 +8,7 @@ const Home = () => {
   const [trends, setTrends] = useState([]);
   useEffect(() => {
     getPopularFilms().then(data => {
+      console.log(data);
       setTrends(data.data.results);
     });
   }, []);

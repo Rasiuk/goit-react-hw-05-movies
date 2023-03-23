@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 
 import {
   Container,
@@ -12,7 +12,7 @@ import {
   Ul,
 } from './FilmDetails.styled';
 
-export const FilmDetails = ({
+const FilmDetails = ({
   movie: {
     original_title,
     overview,
@@ -64,6 +64,8 @@ export const FilmDetails = ({
     </Container>
   );
 };
+export default FilmDetails;
+// FilmDetails.propTypes = { movie: PropTypes.object };
 FilmDetails.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -72,5 +74,6 @@ FilmDetails.propTypes = {
     overview: PropTypes.string.isRequired,
     genres: PropTypes.arrayOf(PropTypes.shape().isRequired).isRequired,
     poster_path: PropTypes.string,
-  }).isRequired,
+  }),
+  from: shape(),
 };
