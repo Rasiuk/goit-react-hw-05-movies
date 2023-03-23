@@ -14,6 +14,14 @@ export const Ul = styled.ul`
   padding: 0;
   margin: 0px auto;
 `;
+export const Item = styled.li`
+  transform: scale(1);
+  transition: transform 200ms linear;
+  &:hover,
+  :focus {
+    transform: scale(1.05);
+  }
+`;
 export const LinkStyle = styled(LinkStyled)`
   text-decoration: none;
 `;
